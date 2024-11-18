@@ -1,0 +1,56 @@
+html,
+body {
+  height: 100%;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+.form-signin {
+  max-width: 330px;
+  max-height: 600px;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 8px 0px;
+}
+
+.form-signin h1 {
+  color: white;
+  padding-bottom: 40px;
+}
+
+.form-signin a {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-family: Poppins;
+}
+
+section {
+  width: 100%;
+}

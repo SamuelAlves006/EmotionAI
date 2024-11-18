@@ -1,0 +1,91 @@
+/* Show it's not fixed to the top */
+body {
+  min-height: 32rem;
+}
+
+.navbar {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.navbar-brand {
+  font-family: Poppins;
+  margin-left: 10px;
+}
+
+.nav-link {
+  font-family: Poppins;
+  font-weight: 500;
+  margin-left: 25px;
+  margin-right: 25px;
+  color: black;
+  display: inline-block;
+  position: relative;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-box {
+  width: 500px;
+  height: 300px;
+  padding: 20px;
+  border: 4px dotted black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #555;
+  cursor: pointer;
+  font-family: Poppins;
+}
+
+.upload-box i {
+  font-size: 72px; /* Tamanho grande para o ícone */
+  color: black; /* Cor preta para o ícone */
+  margin-bottom: 15px; /* Espaço entre o ícone e o texto */
+}
+
+.upload-box span {
+  font-size: 18px;
+  color: #333;
+}
+
+.upload-input {
+  display: none; /* Oculta o campo de upload */
+}
+
+.upload-box:hover {
+  background-color: #f0f0f0;
+}
+
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+.logout i {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.upload-container .upload-box {
+  border: 2px dashed black;
+}
