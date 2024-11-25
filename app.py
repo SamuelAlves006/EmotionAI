@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 from flask_mysqldb import MySQL
 from deepface import DeepFace
 from flask import jsonify
+from flask import flash
 
 app = Flask('__name__')
 app.secret_key = 'your-secret-key'
@@ -52,13 +53,26 @@ def register():
         senha = request.form['senha']
 
         cursor = mysql.connection.cursor()
-        cursor.execute(f"INSERT INTO usuario (nome, email, senha) values ('{nome}', '{email}', '{senha}')")
+
+        # Verificar se o email já existe no banco de dados
+        cursor.execute("SELECT * FROM usuario WHERE email = %s", (email,))
+        existing_user = cursor.fetchone()
+
+        if existing_user:
+            # Retornar erro se o email já existir
+            return render_template('cadastro.html', error="Esse email já está em uso")
+
+        # Inserir novo usuário no banco de dados
+        cursor.execute("INSERT INTO usuario (nome, email, senha) VALUES (%s, %s, %s)", (nome, email, senha))
         mysql.connection.commit()
         cursor.close()
 
+        # Mensagem de sucesso
+        flash("Usuário cadastrado com sucesso!")
         return redirect(url_for('login'))
 
     return render_template('cadastro.html')
+
 
 @app.route('/logout')
 def logout():

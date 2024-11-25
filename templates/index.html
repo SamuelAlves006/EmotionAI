@@ -155,6 +155,16 @@
                       </div>
                     </div>
                   </form>
+
+                  <!-- JavaScript para exibir mensagem de sucesso -->
+                  {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                      <script>
+                        alert("{{ messages[0] }}");
+                      </script>
+                    {% endif %}
+                  {% endwith %}
+
                   <div class="row">
                     <div class="col-12">
                       <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-center mt-5">
